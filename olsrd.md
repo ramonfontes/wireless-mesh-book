@@ -1,3 +1,6 @@
+\infobox{How to install olsrd: \textit{sudo util/install.sh -O}}
+
+
 You can run olsrd by running \textit{examples/adhoc.py}, as follows:
 
 \begin{minted}[fontsize=\footnotesize,breaklines]{text}
