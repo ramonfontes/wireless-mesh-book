@@ -1,0 +1,1 @@
+ All the scenarios covered in this chapter approach aspects related to its execution up to the final objective, where station can communication with other stations that immediately within their radio range or one that is outside their radio range by deploying an intermediate station to be the router to route the packet from the source toward the destination.
