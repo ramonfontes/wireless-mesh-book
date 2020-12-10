@@ -69,3 +69,18 @@ rtt min/avg/max/mdev = 20.167/20.167/20.167/0.000 ms
 \end{minted}
 
 \noindent As you can see, communication can now be successfully established thanks to the static routing configured on the nodes.
+
+
+\begin{minted}[fontsize=\footnotesize,breaklines]{text}
+mininet-wifi> sta1 iw dev sta1-wlan0 info
+Interface sta1-wlan0
+	ifindex 173
+	wdev 0x7300000001
+	addr 02:00:00:00:00:00
+	ssid adhocNet
+	type IBSS
+	wiphy 115
+	channel 5 (2432 MHz), width: 40 MHz, center1: 2442 MHz
+	txpower 15.00 dBm
+\end{minted}
+
