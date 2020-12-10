@@ -1,3 +1,6 @@
+\infobox{How to install babel: \textit{sudo util/install.sh -E}}
+
+
 The babel routing protocol also requires us to stop NetworkManager. So let's do it with the command below.
 
 \begin{minted}[fontsize=\footnotesize,breaklines]{text}
