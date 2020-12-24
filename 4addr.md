@@ -18,7 +18,7 @@ The 4-address scenario illustrated in Figure~\ref{fig:4addr} consists in three a
 ~/mininet-wifi$ sudo python examples/4address.py
 ```
 
-And now we will confirm the association of the stations \texttt{sta1}, \texttt{sta3} and \texttt{sta5}.
+And now we will confirm the association of the stations sta1, sta3 and sta5.
 
 ```
 mininet-wifi> sta1 iwconfig
@@ -67,7 +67,7 @@ sta5-wlan0  IEEE 802.11  ESSID:"ap3-ssid"
           Tx excessive retries:0  Invalid misc:26   Missed beacon:0
 ```
 
-As we can see, the stations are associated to \texttt{ap1}, \texttt{ap2} and \texttt{ap3}, respectively. However, they can communicate with each other by being associated with different access points. This is possible due to the 4-address mode of operation, where the access points are able to allow communication between clients wirelessly.
+As we can see, the stations are associated to ap1, ap2 and ap3, respectively. However, they can communicate with each other by being associated with different access points. This is possible due to the 4-address mode of operation, where the access points are able to allow communication between clients wirelessly.
 
 
 We can confirm this statement with the ping command:

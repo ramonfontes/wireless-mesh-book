@@ -1,15 +1,15 @@
-\infobox{How to install batman-adv: \textit{sudo util/install.sh -B}}
+### How to install batman-adv: sudo util/install.sh -B
 
 
 We can start the batman-adv protocol with the command below.
 
-\begin{minted}[fontsize=\footnotesize,breaklines]{text}
+```
 ~/mininet-wifi$ sudo python examples/adhoc.py batman_adv
-\end{minted}
+```
 
 After starting the script you can alternatively run ifconfig.
 
-\begin{minted}[fontsize=\footnotesize,breaklines]{text}
+```
 mininet-wifi> sta1 ifconfig
 bat0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.123.1  netmask 255.255.255.0  broadcast 0.0.0.0
@@ -37,7 +37,7 @@ sta1-wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 18  bytes 1518 (1.4 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-\end{minted}
+```
 
 In addition to the wlan interface we can notice an interface called bat0. Internally, Mininet-WiFi runs batctl to tell to batman-adv which interfaces it should use to build the mesh network. According to the batman-adv's documentation we can use any interface we can find with ``ifconfig'' (even pan0 for bluetooth if you like B.A.T.M.A.N. more than the normal, build-in ``mesh-protocol'' of bluetooth).
 
@@ -45,7 +45,7 @@ Despite being up, those interfaces that have been added using batctl do not need
 
 That's where the virtual bat0 interface (created by batman-adv) is getting into the game. Usually you are going to assign IP adresses to this one - either manually or via dhcpv4 / avahi autoconfiguration / dhcpv6 / ipv6 autoconfiguration. Any packet that enters this interface will be examined by the batman-adv kernel module for its destination mac address and will be forwarded with the help of B.A.T.M.A.N.'s routing voodoo then, so that finally, magically it pops out at the right destination's bat0 interface.
 
-\begin{minted}[fontsize=\footnotesize,breaklines]{text}
+```
 mininet-wifi> sta1 ping -c2 192.168.123.3
   0PING 192.168.123.3 (192.168.123.3) 56(84) bytes of data.
 64 bytes from 192.168.123.3: icmp_seq=1 ttl=64 time=4.97 ms
@@ -54,16 +54,17 @@ mininet-wifi> sta1 ping -c2 192.168.123.3
 --- 192.168.123.3 ping statistics ---
 2 packets transmitted, 2 received, 0% packet loss, time 1001ms
 rtt min/avg/max/mdev = 4.674/4.824/4.974/0.150 ms
-\end{minted}
+```
 
-Batman-adv includes a tool called \textit{batctl} that offers a convenient way to configure the batman-adv kernel module as well as displaying debug information such as originator tables, translation tables and the debug log. For example, the command below displays the neighbors of a node.
+Batman-adv includes a tool called batctl that offers a convenient way to configure the batman-adv kernel module as well as displaying debug information such as originator tables, translation tables and the debug log. For example, the command below displays the neighbors of a node.
 
-\begin{minted}[fontsize=\footnotesize,breaklines]{text}
+
+```
 mininet-wifi> sta2 batctl meshif bat0 neighbors
 [B.A.T.M.A.N. adv 2020.2, MainIF/MAC: sta2-wlan0/02:00:00:00:01:00 (bat0/32:bc:18:c1:a3:16 BATMAN_IV)]
 IF           Neighbor              last-seen
 sta2-wlan0   02:00:00:00:02:00     0.284s
 sta2-wlan0   02:00:00:00:00:00     0.156s
-\end{minted}
+```
 
-A comprehensive list of the features supported by \textit{batctl} can be obtained through the \textit{batctl -h} command.
+A comprehensive list of the features supported by batctl can be obtained through the \textit{batctl -h} command.
