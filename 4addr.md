@@ -1,7 +1,7 @@
 ## 4-address
 
 
-![4-address network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/master/4addr.eps)
+![4-address network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/4addr.eps)
 
  The advantage of this mode compared to regular WDS mode is that it is easier to configure and does not require a static list of peer MAC addresses on any side. 4-address mode is incompatible with WDS....
 
