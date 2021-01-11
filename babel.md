@@ -1,7 +1,9 @@
-### How to install babel: sudo util/install.sh -E
+### How to install babel: 
+
+```sudo util/install.sh -E```
 
 
-The babel routing protocol also requires us to stop NetworkManager. So let's do it with the command below.
+The babel routing protocol also requires us to stop ```NetworkManager```. So let's do it with the command below.
 
 ```
 ~/mininet-wifi$ sudo service network-manager stop
