@@ -74,6 +74,8 @@ rtt min/avg/max/mdev = 20.167/20.167/20.167/0.000 ms
 
 As you can see, communication can now be successfully established thanks to the static routing configured on the nodes.
 
+Finally, you can get some information about the ad-hoc network by using iw.
+
 ```
 mininet-wifi> sta1 iw dev sta1-wlan0 info
 Interface sta1-wlan0
