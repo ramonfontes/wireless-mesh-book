@@ -1,5 +1,5 @@
 ### How to install batman-adv: 
-sudo util/install.sh -B
+```sudo util/install.sh -B```
 
 
 You can start the batman-adv protocol with the command below.
