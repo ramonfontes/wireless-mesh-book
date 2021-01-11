@@ -1,6 +1,6 @@
 The network topology represented by the IBSS scenario is the same as illustrated in the figure below. 
 
-![Minimal network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/master/minimal-topo.eps)
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/master/minimal-topo.png)
 
 In order to run the IBSS scenario you have to run ```examples/adhoc.py```, as follows.
 
@@ -8,7 +8,7 @@ In order to run the IBSS scenario you have to run ```examples/adhoc.py```, as fo
 ~/mininet-wifi$ sudo python examples/adhoc.py
 ```
 
-\noindent Now, try to establish communication by connecting sta1 to sta2 and sta3, exactly as done below. 
+\noindent Now, try to establish communication by connecting **sta1** to **sta2** and **sta3**, exactly as done below. 
 
 ```
 mininet-wifi> sta1 ping -c1 sta2
@@ -26,7 +26,7 @@ From 10.0.0.1 icmp_seq=1 Destination Host Unreachable
 1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
 ```
 
-As we can see, **sta1** cannot communicate with sta3, since **sta2** was not instructed on how to forward data traffic to sta3 in order to allow **sta1** and **sta3** to establish communication with each other.
+As we can see, **sta1** cannot communicate with sta3, since **sta2** was not instructed on how to forward data traffic to **sta3** in order to allow **sta1** and **sta3** to establish communication with each other.
 
 
 In wireless ad-hoc networks, intermediate nodes do not automatically route traffic, as is done in wireless mesh networks. To do so, you first need to either setup a routing protocol or configure routing tables. So let us look at how this configuring can be done.
@@ -59,7 +59,7 @@ Destination Gateway  Genmask         Flags Metric Ref  Use Iface
 10.0.0.1    10.0.0.2 255.255.255.255 UGH   0      0    0 sta3-wlan0
 ```
 
-Now, let us try again to ping between sta1 and sta3. 
+Now, let us try again to ```ping``` between **sta1** and **sta3**. 
 
 ```
 mininet-wifi> sta1 ping -c1 sta3
@@ -74,7 +74,7 @@ rtt min/avg/max/mdev = 20.167/20.167/20.167/0.000 ms
 
 As you can see, communication can now be successfully established thanks to the static routing configured on the nodes.
 
-Finally, you can get some information about the ad-hoc network by using iw.
+Finally, you can get some information about the ad-hoc network by using ```iw```.
 
 ```
 mininet-wifi> sta1 iw dev sta1-wlan0 info
