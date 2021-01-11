@@ -1,4 +1,4 @@
-The network topology of this scenario is the same as that illustrated previously below.
+The network topology of this scenario is the same as that illustrated below.
 
 ![](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.eps)
 
