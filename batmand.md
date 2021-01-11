@@ -23,7 +23,7 @@ Although sta1 and sta3 can communicate with each other we cannot observe the rou
 
 
 ```
-mininet-wifi> sta3 -c -d 1
+mininet-wifi> sta3 batmand -c -d 1
   Originator  (#/255)         Nexthop [outgoingIF]:   Potential nexthops ... [B.A.T.M.A.N. df6fcb8, MainIF/IP: sta3-wlan0/10.0.0.3, UT: 0d 0h 2m] 
 10.0.0.2    (255)        10.0.0.2 [sta3-wlan0]:        10.0.0.2 (255) 
 10.0.0.1    (245)        10.0.0.2 [sta3-wlan0]:        10.0.0.2 (245)
