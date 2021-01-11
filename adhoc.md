@@ -1,3 +1,5 @@
+### IBSS (_ad-hoc_)
+
 The network topology represented by the IBSS scenario is the same as illustrated in the figure below. 
 
 ![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.png?raw=true)
