@@ -1,7 +1,7 @@
 ### How to install olsrd: sudo util/install.sh -O
 
 
-You can run olsrd by running examples/adhoc.py, as follows:
+You can run olsrd by running ```examples/adhoc.py```, as follows:
 
 ```
 ~/mininet-wifi$ sudo python examples/adhoc.py olsrd
