@@ -1,4 +1,8 @@
-The network topology represented by the IBSS scenario is the same as previously illustrated in Figure~\ref{fig:mesh}. In order to run the IBSS scenario you have to run \textit{examples/adhoc.py}, as follows.
+The network topology represented by the IBSS scenario is the same as illustrated in the figure below. 
+
+![Minimal network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/master/minimal-topo.eps)
+
+In order to run the IBSS scenario you have to run ```examples/adhoc.py```, as follows.
 
 ```
 ~/mininet-wifi$ sudo python examples/adhoc.py
@@ -22,7 +26,7 @@ From 10.0.0.1 icmp_seq=1 Destination Host Unreachable
 1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
 ```
 
-As we can see, sta1 cannot communicate with sta3, since sta2 was not instructed on how to forward data traffic to sta3 in order to allow sta1 and sta3 to establish communication with each other.
+As we can see, **sta1** cannot communicate with sta3, since **sta2** was not instructed on how to forward data traffic to sta3 in order to allow **sta1** and **sta3** to establish communication with each other.
 
 
 In wireless ad-hoc networks, intermediate nodes do not automatically route traffic, as is done in wireless mesh networks. To do so, you first need to either setup a routing protocol or configure routing tables. So let us look at how this configuring can be done.
@@ -36,7 +40,7 @@ mininet-wifi> sta3 ip route add 10.0.0.1 via 10.0.0.2
 mininet-wifi> sta2 echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 
-The first command instructs sta1 that, in case it needs to talk to \texttt{sta3}, the packet must first pass through \texttt{sta2}. The second, in turn, indicates that for the packet to arrive at \texttt{sta1}, from \texttt{sta3}, it must also pass through \texttt{sta2}. The third one instructs \texttt{sta2} to forward packets addressed to \texttt{sta1} and \texttt{sta3}.
+The first command instructs sta1 that, in case it needs to talk to **sta3**, the packet must first pass through **sta2**. The second, in turn, indicates that for the packet to arrive at **sta1**, from **sta3**, it must also pass through **sta2**. The third one instructs **sta2** to forward packets addressed to **sta1** and **sta3**.
 
 
 Once all the necessary routing settings have been made, we can confirm them by viewing their routing tables, as follows.
@@ -69,7 +73,6 @@ rtt min/avg/max/mdev = 20.167/20.167/20.167/0.000 ms
 ```
 
 As you can see, communication can now be successfully established thanks to the static routing configured on the nodes.
-
 
 ```
 mininet-wifi> sta1 iw dev sta1-wlan0 info
