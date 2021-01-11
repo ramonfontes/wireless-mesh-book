@@ -1,4 +1,8 @@
-The network topology of this scenario is the same as that illustrated previously in Figure~\ref{fig:mesh}, however, we are now dealing with sensors that have 6LoWPAN connections instead of WiFi. Let's run the 6LoWPAN scenario by running \textit{examples/6LoWPan.py}, as below.
+The network topology of this scenario is the same as that illustrated previously below.
+
+![](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.eps)
+
+However, we are now dealing with sensors that have 6LoWPAN connections instead of WiFi. Let's run the 6LoWPAN scenario by running ```examples/6LoWPan.py```, as below.
 
 ```
 ~/mininet-wifi$ sudo python examples/6LoWPan.py
