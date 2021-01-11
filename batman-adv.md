@@ -1,13 +1,14 @@
-### How to install batman-adv: sudo util/install.sh -B
+### How to install batman-adv: 
+sudo util/install.sh -B
 
 
-We can start the batman-adv protocol with the command below.
+You can start the batman-adv protocol with the command below.
 
 ```
-~/mininet-wifi$ sudo python examples/adhoc.py batman_adv
+mininet-wifi$ sudo python examples/adhoc.py batman_adv
 ```
 
-After starting the script you can alternatively run ifconfig.
+After starting the script you can alternatively run ```ifconfig```.
 
 ```
 mininet-wifi> sta1 ifconfig
@@ -39,7 +40,7 @@ sta1-wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-In addition to the wlan interface we can notice an interface called bat0. Internally, Mininet-WiFi runs batctl to tell to batman-adv which interfaces it should use to build the mesh network. According to the batman-adv's documentation we can use any interface we can find with ``ifconfig'' (even pan0 for bluetooth if you like B.A.T.M.A.N. more than the normal, build-in ``mesh-protocol'' of bluetooth).
+In addition to the wlan interface we can notice an interface called bat0. Internally, Mininet-WiFi runs batctl to tell to batman-adv which interfaces it should use to build the mesh network. According to the batman-adv's documentation we can use any interface we can find with ```ifconfig``` (even pan0 for bluetooth if you like B.A.T.M.A.N. more than the normal, build-in _mesh-protocol_ of bluetooth).
 
 Despite being up, those interfaces that have been added using batctl do not need any ip-address configured as batman-adv is operating on layer 2 (which is a common mistake by people who are more familiar with batmand or other layer 3 routing protocols)! Those interfaces are bridge-interfaces - we just must not use those plain interfaces for routing anymore.
 
@@ -67,4 +68,54 @@ sta2-wlan0   02:00:00:00:02:00     0.284s
 sta2-wlan0   02:00:00:00:00:00     0.156s
 ```
 
-A comprehensive list of the features supported by batctl can be obtained through the \textit{batctl -h} command.
+A comprehensive list of the features supported by ```batctl``` can be obtained through the ```batctl -h``` command.
+
+```
+mininet-wifi> sta1 batctl -h
+Usage: batctl [options] command|debug table [parameters]
+options:
+ 	-h print this help (or 'batctl <command|debug table> -h' for the parameter help)
+ 	-v print version
+
+commands:
+ 	meshif <netdev> aggregation|ag             [0|1]             	display or modify aggregation setting
+ 	meshif <netdev> ap_isolation|ap            [0|1]             	display or modify ap_isolation setting
+ 	vlan <vdev> ap_isolation|ap                [0|1]             	display or modify ap_isolation setting for vlan device or id
+ 	meshif <netdev> vid <vid> ap_isolation|ap  [0|1]             	display or modify ap_isolation setting for vlan device or id
+ 	meshif <netdev> bonding|b                  [0|1]             	display or modify bonding setting
+ 	meshif <netdev> bridge_loop_avoidance|bl   [0|1]             	display or modify bridge_loop_avoidance setting
+ 	meshif <netdev> distributed_arp_table|dat  [0|1]             	display or modify distributed_arp_table setting
+ 	hardif <netdev> elp_interval|et            [interval]        	display or modify elp_interval setting
+ 	event|e                                                      	display events from batman-adv
+ 	meshif <netdev> fragmentation|f            [0|1]             	display or modify fragmentation setting
+ 	meshif <netdev> gw_mode|gw                 [mode]            	display or modify the gateway mode
+ 	meshif <netdev> hop_penalty|hp             [penalty]         	display or modify hop_penalty setting
+ 	hardif <netdev> hop_penalty|hp             [penalty]         	display or modify hop_penalty setting
+ 	meshif <netdev> interface|if               [add|del iface(s)]	display or modify the interface settings
+ 	meshif <netdev> isolation_mark|mark        [mark]            	display or modify isolation_mark setting
+ 	meshif <netdev> loglevel|ll                [level]           	display or modify the log level
+ 	meshif <netdev> multicast_fanout|mo        [fanout]        	display or modify multicast_fanout setting
+ 	meshif <netdev> multicast_forceflood|mff   [0|1]             	display or modify multicast_forceflood setting
+ 	meshif <netdev> network_coding|nc          [0|1]             	display or modify network_coding setting
+ 	meshif <netdev> orig_interval|it           [interval]        	display or modify orig_interval setting
+ 	meshif <netdev> ping|p                     <destination>     	ping another batman adv host via layer 2
+ 	routing_algo|ra                            [mode]            	display or modify the routing algorithm
+ 	meshif <netdev> statistics|s                                 	print mesh statistics
+ 	tcpdump|td                                 <interface>       	tcpdump layer 2 traffic on the given interface
+ 	hardif <netdev> throughput_override|to     [mbit]        	display or modify throughput_override setting
+ 	meshif <netdev> throughputmeter|tp         <destination>     	start a throughput measurement
+ 	meshif <netdev> traceroute|tr              <destination>     	traceroute another batman adv host via layer 2
+ 	meshif <netdev> translate|t                <destination>     	translate a destination to the originator responsible for it
+
+debug tables:                                   	display the corresponding debug table
+ 	meshif <netdev> backbonetable|bbt          
+ 	meshif <netdev> claimtable|cl              
+ 	meshif <netdev> dat_cache|dc               
+ 	meshif <netdev> gateways|gwl               
+ 	meshif <netdev> mcast_flags|mf             
+ 	meshif <netdev> nc_nodes|nn                
+ 	meshif <netdev> neighbors|n                
+ 	meshif <netdev> originators|o              
+ 	meshif <netdev> transglobal|tg             
+ 	meshif <netdev> translocal|tl 
+ ```
