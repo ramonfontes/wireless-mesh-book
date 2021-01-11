@@ -1,5 +1,7 @@
 ### How to install batmand: 
-```mininet-wifi$ sudo util/install.sh -B```
+```
+mininet-wifi$ sudo util/install.sh -B
+```
 
 You can run batmand with \textit{adhoc.py} by passing batmand as a argument, as follows.
 
