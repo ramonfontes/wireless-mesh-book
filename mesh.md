@@ -1,4 +1,6 @@
-![Minimal mesh network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/master/minimal-topo.eps)
+### Mesh Point (802.11p)
+
+![Minimal mesh network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/master/minimal-topo.png)
 
 
 ```
@@ -6,7 +8,7 @@
 ```
 
 
-In addition to create the network topology described above, the script will also automatically create an wireless mesh network interface for the stations. The wireless mesh interface is created by iw is a virtual interface that was created from the wireless physical interface. As we can see below there are two wireless network interfaces named \texttt{sta1-wlan0} and \texttt{sta1-mp0}. The wlan interface is the physical interface and it is down. On the other hand, the \texttt{mp} (mesh point) interface is up and working as mesh point.
+In addition to create the network topology illustrated above, the script will also automatically create an wireless mesh network interface for the stations. The wireless mesh interface is created by iw is a virtual interface that was created from the wireless physical interface. As we can see below there are two wireless network interfaces named **sta1-wlan0** and **sta1-mp0**. The wlan interface is the physical interface and it is down. On the other hand, the **mp** (mesh point) interface is up and working as mesh point.
 
 ```
 mininet-wifi> sta1 iwconfig
@@ -24,14 +26,14 @@ sta1-wlan0  IEEE 802.11  ESSID:off/any
 ```
 
 
-Just for the sake of curiosity, the following command was responsible for creating the mp interface. Since this command is included in the mininet-wifi source code, you don't have to worry about issuing it manually.
+Just for the sake of curiosity, the following command was responsible for creating the mp interface. Since this command is included in the mininet-wifi source code, you do not have to worry about issuing it manually.
 
 ```
 iw dev sta1-wlan0 interface add sta1-mp0 type mp
 ```
 
 
-You can use the info command provided by iw to confirm that the network interface is working on mesh mode and the wireless mesh network is operational.
+You can use the info command provided by ```iw``` to confirm that the network interface is working on mesh mode and the wireless mesh network is operational.
 
 ```
 mininet-wifi> sta1 iw dev sta1-mp0 info
@@ -47,7 +49,7 @@ Interface sta1-mp0
 
 
 
-Then try to \textit{ping} between \texttt{sta1} and \texttt{sta3}, as follows.
+Then try to ```ping``` between **sta1** and **sta3**, as follows.
 
 ```
 mininet-wifi> sta1 ping -c1 sta3
@@ -60,7 +62,7 @@ rtt min/avg/max/mdev = 2.662/2.662/2.662/0.000 ms
 ```
 
 
-As you can see, sta1 is able to communicate with sta3, since sta2 is located between sta1 and sta3, enabling sta1 to also communicate with \texttt{sta3} by means of \texttt{sta2}. Technically, we can see that the \texttt{sta2} node is actually located between \texttt{sta1} and \texttt{sta3} using the following command.
+As you can see, **sta1** is able to communicate with **sta3**, since **sta2** is located between **sta1** and **sta3**, enabling **sta1** to also communicate with **sta3** by means of **sta2**. Technically, we can see that the **sta2** node is actually located between **sta1** and **sta3** using the following command.
 
 ```
 mininet-wifi> sta1 iw dev sta1-mp0 mpath dump
@@ -71,9 +73,9 @@ DEST ADDR         NEXT HOP          IFACE    SN METRIC QLEN EXPTIME  DTIM DRET F
 
 
 
-This command prints the mesh paths as if they were a routing table linked to sta1. By observing this table, you can notice that the next hop (\textit {NEXT HOP}) for \texttt{sta2} (02:00:00:00:01:00) is \texttt{sta2} itself, whereas the next hop for \texttt{sta3} (02:00:00:00:02:00) is also \texttt {sta2}, since this node is located between \texttt{sta1} and \texttt{sta3}.
+This command prints the mesh paths as if they were a routing table linked to sta1. By observing this table, you can notice that the next hop (**NEXT HOP**) for **sta2** (02:00:00:00:01:00) is **sta2** itself, whereas the next hop for **sta3** (02:00:00:00:02:00) is also **sta2**, since this node is located between **sta1** and **sta3**.
 
-You can also run the ``station dump'' command to list all stations know. For example, you can see below that \texttt{sta1} can see only \texttt{sta2} that has mac address equals to 02:00:00:00:01:00.
+You can also run the ```station dump``` command to list all stations know. For example, you can see below that **sta1** can see only **sta2** that has mac address equals to 02:00:00:00:01:00.
 
 ```
 mininet-wifi> sta1 iw dev sta1-mp0 station dump
@@ -87,7 +89,7 @@ Station 02:00:00:00:01:00 (on sta1-mp0)
 ```
 
 
-Considering that there are more two stations at the network topology illustrated in Figure~\ref{fig:mesh}, we can observe how much the transmission rate decreases as long as more hops the packet has to pass through. You can get to the results presented below if you add two more stations and run Iperf. In this example, terminals were opened for all the nodes via \textit{xterm} and \texttt{sta1} acted as a server and the other nodes acted as clients.
+Considering that there are more two stations at the network topology illustrated above, we can observe how much the transmission rate decreases as long as more hops the packet has to pass through. You can get to the results presented below if you add two more stations and run Iperf. In this example, terminals were opened for all the nodes via ```xterm``` and **sta1** acted as a server and the other nodes acted as clients.
 
 ```a1# iperf -s
 ------------------------------------------------------------
