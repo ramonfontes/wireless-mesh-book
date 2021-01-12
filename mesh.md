@@ -1,7 +1,9 @@
 ### Mesh Point (802.11p)
 
-![Minimal mesh network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/master/minimal-topo.png)
 
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.png?raw=true)
+
+Let's run ```mesh.py``` as below:
 
 ```
 ~/mininet-wifi$ sudo python examples/mesh.py
