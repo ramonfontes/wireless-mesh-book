@@ -1,9 +1,13 @@
-### How to install batmand: 
+### Batmand
+
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.png?raw=true)
+
+#### How to install batmand: 
 ```
 mininet-wifi$ sudo util/install.sh -B
 ```
 
-You can run batmand with \textit{adhoc.py} by passing batmand as a argument, as follows.
+You can run batmand with ```adhoc.py``` by passing batmand as a argument, as follows.
 
 ```
 ~/mininet-wifi$ sudo python examples/adhoc.py batmand
