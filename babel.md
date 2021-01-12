@@ -1,4 +1,8 @@
-### How to install babel: 
+### Babeld
+
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.png?raw=true)
+
+#### How to install babeld: 
 
 ```sudo util/install.sh -E```
 
@@ -9,12 +13,11 @@ The babel routing protocol also requires us to stop ```NetworkManager```. So let
 ~/mininet-wifi$ sudo service network-manager stop
 ```
 
-Then, you run the babel protocol with ``examples/adhoc.py''.
+Then, you run the babel protocol with ```examples/adhoc.py```.
 
 ```
 ~/mininet-wifi$ sudo python examples/adhoc.py babel
 ```
-
 
 
 ```
