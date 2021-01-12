@@ -10,7 +10,7 @@ In order to run the IBSS scenario you have to run ```examples/adhoc.py```, as fo
 ~/mininet-wifi$ sudo python examples/adhoc.py
 ```
 
-\noindent Now, try to establish communication by connecting **sta1** to **sta2** and **sta3**, exactly as done below. 
+Now, try communicating **sta1** with **sta2** and **sta3**, exactly as below. 
 
 ```
 mininet-wifi> sta1 ping -c1 sta2
