@@ -1,24 +1,21 @@
-## 4-address
+### 4-address
 
 
-![4-address network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/4addr.eps)
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/4addr-topo.png?raw=true)
 
- The advantage of this mode compared to regular WDS mode is that it is easier to configure and does not require a static list of peer MAC addresses on any side. 4-address mode is incompatible with WDS....
-
-
-Some scenarios require us to stop NetworkManager. NetworkManager is a program for providing detection and configuration for systems to automatically connect to networks that can be useful for both wireless and wired networks. However, this nature of automatically trying to make certain configurations ends up impacting the expected operation of some scenarios. For this reason, we need to interrupt NetworkManager so that it does not interfere the way the virtual wireless network interfaces work. The command below will stop NetworkManager and you may lose Internet connection. The start command can use used to bring NetworkManager up again.
+Some scenarios require us to stop ```NetworkManager```. ```NetworkManager``` is a program for providing detection and configuration for systems to automatically connect to networks that can be useful for both wireless and wired networks. However, this nature of automatically trying to make certain configurations ends up impacting the expected operation of some scenarios. For this reason, we need to interrupt the ```NetworkManager``` process so that it does not interfere the way the virtual wireless network interfaces work. The command below will stop ```NetworkManager``` and you may lose Internet connection. The ```start``` command can be used to bring ```NetworkManager``` up again.
 
 ```
 ~/mininet-wifi$ sudo service network-manager stop
 ```
 
-The 4-address scenario illustrated in Figure~\ref{fig:4addr} consists in three access points and two stations associated to each of them. The 4-address scenario can be running as below:
+The 4-address scenario illustrated in the figure above. It consists in three access points and two stations associated to each of them. The 4-address scenario can be running as below:
 
 ```
 ~/mininet-wifi$ sudo python examples/4address.py
 ```
 
-And now we will confirm the association of the stations sta1, sta3 and sta5.
+First of all we will confirm the association of the stations **sta1**, **sta3** and **sta5**.
 
 ```
 mininet-wifi> sta1 iwconfig
@@ -35,7 +32,6 @@ sta1-wlan0  IEEE 802.11  ESSID:"ap1-ssid"
           Tx excessive retries:0  Invalid misc:16   Missed beacon:0
 ```
 
-
 ```
 mininet-wifi> sta3 iwconfig
 lo        no wireless extensions.
@@ -50,7 +46,6 @@ sta3-wlan0  IEEE 802.11  ESSID:"ap2-ssid"
           Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
           Tx excessive retries:0  Invalid misc:30   Missed beacon:0
 ```
-
 
 ```
 mininet-wifi> sta5 iwconfig
@@ -67,10 +62,10 @@ sta5-wlan0  IEEE 802.11  ESSID:"ap3-ssid"
           Tx excessive retries:0  Invalid misc:26   Missed beacon:0
 ```
 
-As we can see, the stations are associated to ap1, ap2 and ap3, respectively. However, they can communicate with each other by being associated with different access points. This is possible due to the 4-address mode of operation, where the access points are able to allow communication between clients wirelessly.
+As we can see, the stations are associated to **ap1**, **ap2** and **ap3**, respectively. However, they can communicate with each other by being associated with different access points. This is possible due to the 4-address mode of operation, where the access points are able to allow communication among clients wirelessly.
 
 
-We can confirm this statement with the ping command:
+We can confirm this statement with the ```ping``` command:
 
 ```
 mininet-wifi> sta1 ping -c1 sta3
