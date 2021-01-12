@@ -1,4 +1,8 @@
-### How to install batman-adv: 
+### Batman-adv
+
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.png?raw=true)
+
+#### How to install batman-adv: 
 ```sudo util/install.sh -B```
 
 
@@ -40,11 +44,11 @@ sta1-wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-In addition to the wlan interface we can notice an interface called bat0. Internally, Mininet-WiFi runs batctl to tell to batman-adv which interfaces it should use to build the mesh network. According to the batman-adv's documentation we can use any interface we can find with ```ifconfig``` (even pan0 for bluetooth if you like B.A.T.M.A.N. more than the normal, build-in _mesh-protocol_ of bluetooth).
+In addition to the wlan interface we can notice an interface called **bat0**. Internally, Mininet-WiFi runs batctl to tell to batman-adv which interfaces it should use to build the mesh network. According to the batman-adv's documentation we can use any interface we can find with ```ifconfig``` (even pan0 for bluetooth if you like B.A.T.M.A.N. more than the normal, build-in _mesh-protocol_ of bluetooth).
 
 Despite being up, those interfaces that have been added using batctl do not need any ip-address configured as batman-adv is operating on layer 2 (which is a common mistake by people who are more familiar with batmand or other layer 3 routing protocols)! Those interfaces are bridge-interfaces - we just must not use those plain interfaces for routing anymore.
 
-That's where the virtual bat0 interface (created by batman-adv) is getting into the game. Usually you are going to assign IP adresses to this one - either manually or via dhcpv4 / avahi autoconfiguration / dhcpv6 / ipv6 autoconfiguration. Any packet that enters this interface will be examined by the batman-adv kernel module for its destination mac address and will be forwarded with the help of B.A.T.M.A.N.'s routing voodoo then, so that finally, magically it pops out at the right destination's bat0 interface.
+That's where the virtual **bat0** interface (created by batman-adv) is getting into the game. Usually you are going to assign IP adresses to this one - either manually or via dhcpv4 / avahi autoconfiguration / dhcpv6 / ipv6 autoconfiguration. Any packet that enters this interface will be examined by the batman-adv kernel module for its destination mac address and will be forwarded with the help of B.A.T.M.A.N.'s routing voodoo then, so that finally, magically it pops out at the right destination's bat0 interface.
 
 ```
 mininet-wifi> sta1 ping -c2 192.168.123.3
