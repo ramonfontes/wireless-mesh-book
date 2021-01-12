@@ -1,4 +1,8 @@
-### How to install olsrd: 
+### OLSRd
+
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.png?raw=true)
+
+#### How to install olsrd: 
 
 ```sudo util/install.sh -O```
 
@@ -10,7 +14,7 @@ You can run olsrd by running ```examples/adhoc.py```, as follows:
 ```
 
 
-Then, you can try communicate sta1 and sta3 with the ping command.
+Then, you can try communicate **sta1** and **sta3** with the ```ping``` command.
 
 ```
 mininet-wifi> sta1 ping -c2 sta3
@@ -23,7 +27,7 @@ PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
 rtt min/avg/max/mdev = 2.139/2.532/2.926/0.393 ms
 ```
 
-And run the ``route -n'' to get some information about the routes.
+And run the ```route -n``` to get some information about the routes.
 
 
 ```
