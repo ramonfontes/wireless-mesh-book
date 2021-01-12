@@ -10,4 +10,5 @@ In order to run the IBSS scenario you have to run ```examples/wifiDirect.py```, 
 ~/mininet-wifi$ sudo python examples/wifiDirect.py
 ```
 
-Now, try communicating **sta1** and **sta2** and **sta3**, exactly as below. 
+Now, try communicating **sta1** and **sta2**, as below. 
+
