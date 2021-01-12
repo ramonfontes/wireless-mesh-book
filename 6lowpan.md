@@ -1,8 +1,10 @@
-The network topology of this scenario is the same as illustrated below.
+### IEEE 802.15.4 (6LoWPAN)
 
-![](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.eps)
+The network topology of this scenario looks like the figure below.
 
-However, we are now dealing with sensors that have 6LoWPAN connections instead of WiFi. Let's run the 6LoWPAN scenario by running ```examples/6LoWPan.py```, as below.
+![Network topology](https://github.com/ramonfontes/wireless-mesh-book/blob/main/minimal-topo.png?raw=true)
+
+Different from the other scenarios we are now dealing with sensors that have 6LoWPAN connections instead of WiFi. Let's run the 6LoWPAN scenario by running ```examples/6LoWPan.py```, as below.
 
 ```
 ~/mininet-wifi$ sudo python examples/6LoWPan.py
@@ -37,7 +39,7 @@ sensor1-wpan0: flags=195<UP,BROADCAST,RUNNING,NOARP>  mtu 123
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-Since the hardware and driver were configured correctly your system will come up with a node type wpan interface, most likely called wpan0. This explains the sensor1-wpan0 interface we can see above. Internally, Mininet-WiFi will setup the 6LoWPAN interface with a 6LoWPAN 1280 MTU which runs on top the \texttt{sensor1-wpan0} interface, called \texttt{sensor1-pan0}.
+Since the hardware and driver were configured correctly your system will come up with a node type with wpan interface, most likely called **wpan0**. This explains the **sensor1-wpan0** interface we can see above. Internally, Mininet-WiFi will setup the 6LoWPAN interface with a 6LoWPAN 1280 MTU which runs on top the **sensor1-wpan0** interface, called **sensor1-pan0**.
 
 
 Now, you can use iwpan to get some information of the network interface. For example, the info command displays a set of information that can be useful for diagnosis.
@@ -59,7 +61,7 @@ Interface sensor1-wpan0
 	ackreq_default 0
 ```
 
-And finally you can use the ping6 command to exchange icmp packets over ipv6.
+And finally you can use the ```ping6``` command to exchange icmp packets over ipv6.
 
 ```ninet-wifi> sensor1 ping6 -c2 sensor2
 PING 2001::2(2001::2) 56 data bytes
