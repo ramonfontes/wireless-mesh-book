@@ -11,6 +11,9 @@ Let's run ```uav.py``` as below:
 
 In addition to create the UAV scenario with CoppeliSim as illustrated above, the script will also automatically create an wireless ad hoc network interface for the stations.
 
+
+You can try ping **dr1** and **dr2** as below:
+
 ```
 mininet-wifi> dr1 ping 192.168.123.2
 PING 192.168.123.2 (192.168.123.2) 56(84) bytes of data.
@@ -52,6 +55,7 @@ From 192.168.123.1 icmp_seq=33 Destination Host Unreachable
 64 bytes from 192.168.123.2: icmp_seq=42 ttl=64 time=0.722 ms
 ```
 
+Each batman node maintains a list of all single hop neighbors it detects. Whether or not a single hop neighbor is routed to directly or via another single hop neighbor is decided based on the link quality. The printed table begins with a header line with some more or less useful status data, followed by the single hop neighbor table:
 
 ```
 mininet-wifi> dr1 batctl bat0 n
@@ -61,6 +65,7 @@ IF             Neighbor              last-seen
     dr1-wlan0	  00:00:00:00:00:04    0.296s
 ```
 
+Each batman node maintains a list of all other nodes in the network and remembers in which direction to send the packets if data should be transmitted. The direction manifests itself in the form of the "best next neighbor" which basically is the next step towards the destination. You can retrieve batman's internal originator table by reading the originators file. The printed table begins with a header line with some more or less useful status data, followed by the originator table. Each line contains information regarding a specific originator:
 
 ```
 mininet-wifi> dr1 batctl o
