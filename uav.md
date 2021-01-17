@@ -9,10 +9,10 @@ Let's run ```uav.py``` as below:
 ~/mininet-wifi$ sudo python examples/uav/uav.py
 ```
 
-In addition to create the UAV scenario with CoppeliSim as illustrated above, the script will also automatically create an wireless ad hoc network interface for the stations.
+In addition to create the UAV scenario with CoppeliaSim as illustrated above, the `uav.py` script will also open a GUI provided by Mininet-WiFi. At this moment you can use the CoppeliaSim's GUI to visualize the cameras on board the drones as well as use the Mininet-WiFi's GUI to visualize the signal range of them. 
 
 
-You can try ping **dr1** and **dr2** as below:
+Eventually, you can try ping **dr1** and **dr2** as below:
 
 ```
 mininet-wifi> dr1 ping 192.168.123.2
@@ -24,38 +24,18 @@ From 192.168.123.1 icmp_seq=4 Destination Host Unreachable
 From 192.168.123.1 icmp_seq=5 Destination Host Unreachable
 From 192.168.123.1 icmp_seq=6 Destination Host Unreachable
 From 192.168.123.1 icmp_seq=7 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=11 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=12 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=13 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=14 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=15 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=16 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=17 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=18 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=19 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=20 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=21 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=22 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=23 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=24 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=25 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=26 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=27 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=28 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=29 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=30 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=31 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=32 Destination Host Unreachable
-From 192.168.123.1 icmp_seq=33 Destination Host Unreachable
-64 bytes from 192.168.123.2: icmp_seq=37 ttl=64 time=145 ms
-64 bytes from 192.168.123.2: icmp_seq=38 ttl=64 time=0.732 ms
-64 bytes from 192.168.123.2: icmp_seq=39 ttl=64 time=1.44 ms
-64 bytes from 192.168.123.2: icmp_seq=40 ttl=64 time=0.876 ms
-64 bytes from 192.168.123.2: icmp_seq=41 ttl=64 time=0.801 ms
-64 bytes from 192.168.123.2: icmp_seq=42 ttl=64 time=0.722 ms
+64 bytes from 192.168.123.2: icmp_seq=8 ttl=64 time=145 ms
+64 bytes from 192.168.123.2: icmp_seq=9 ttl=64 time=0.732 ms
+64 bytes from 192.168.123.2: icmp_seq=10 ttl=64 time=1.44 ms
+64 bytes from 192.168.123.2: icmp_seq=11 ttl=64 time=0.876 ms
+64 bytes from 192.168.123.2: icmp_seq=12 ttl=64 time=0.801 ms
+64 bytes from 192.168.123.2: icmp_seq=13 ttl=64 time=0.722 ms
 ```
 
-Each batman node maintains a list of all single hop neighbors it detects. Whether or not a single hop neighbor is routed to directly or via another single hop neighbor is decided based on the link quality. The printed table begins with a header line with some more or less useful status data, followed by the single hop neighbor table:
+Ping will work when the nodes are able to see each other and will not work when they cannot see each other.
+
+#### List of neighbors
+The list of neighbors can be seen with the command below. Each batman node maintains a list of all single hop neighbors it detects. Whether or not a single hop neighbor is routed to directly or via another single hop neighbor is decided based on the link quality. The printed table begins with a header line with some more or less useful status data, followed by the single hop neighbor table:
 
 ```
 mininet-wifi> dr1 batctl bat0 n
@@ -65,6 +45,7 @@ IF             Neighbor              last-seen
     dr1-wlan0	  00:00:00:00:00:04    0.296s
 ```
 
+#### List of best next neighbors
 Each batman node maintains a list of all other nodes in the network and remembers in which direction to send the packets if data should be transmitted. The direction manifests itself in the form of the "best next neighbor" which basically is the next step towards the destination. You can retrieve batman's internal originator table by reading the originators file. The printed table begins with a header line with some more or less useful status data, followed by the originator table. Each line contains information regarding a specific originator:
 
 ```
