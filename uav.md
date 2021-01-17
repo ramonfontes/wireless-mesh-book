@@ -39,10 +39,10 @@ The list of neighbors can be seen with the command below. Each batman node maint
 
 ```
 mininet-wifi> dr1 batctl bat0 n
-[B.A.T.M.A.N. adv 2020.2, MainIF/MAC: dr1-wlan0/00:00:00:00:00:02 (bat0/8e:c6:57:9a:47:88 BATMAN_IV)]
+[B.A.T.M.A.N. adv 2020.2, MainIF/MAC: dr1-wlan0/00:00:00:00:00:01 (bat0/8e:c6:57:9a:47:88 BATMAN_IV)]
 IF             Neighbor              last-seen
-    dr1-wlan0	  00:00:00:00:00:03    0.200s
-    dr1-wlan0	  00:00:00:00:00:04    0.296s
+    dr1-wlan0	  00:00:00:00:00:02    0.200s
+    dr1-wlan0	  00:00:00:00:00:03    0.296s
 ```
 
 #### List of best next neighbors
@@ -50,10 +50,10 @@ Each batman node maintains a list of all other nodes in the network and remember
 
 ```
 mininet-wifi> dr1 batctl o
-[B.A.T.M.A.N. adv 2020.2, MainIF/MAC: dr1-wlan0/00:00:00:00:00:02 (bat0/8e:c6:57:9a:47:88 BATMAN_IV)]
+[B.A.T.M.A.N. adv 2020.2, MainIF/MAC: dr1-wlan0/00:00:00:00:00:01 (bat0/8e:c6:57:9a:47:88 BATMAN_IV)]
    Originator        last-seen (#/255) Nexthop           [outgoingIF]
- * 00:00:00:00:00:03    0.428s   (170) 00:00:00:00:00:03 [ dr1-wlan0]
-   00:00:00:00:00:04    0.552s   (  0) 00:00:00:00:00:03 [ dr1-wlan0]
- * 00:00:00:00:00:04    0.552s   (253) 00:00:00:00:00:04 [ dr1-wlan0]
+ * 00:00:00:00:00:02    0.428s   (170) 00:00:00:00:00:02 [ dr1-wlan0]
+   00:00:00:00:00:03    0.552s   (  0) 00:00:00:00:00:02 [ dr1-wlan0]
+ * 00:00:00:00:00:03    0.552s   (253) 00:00:00:00:00:03 [ dr1-wlan0]
 ```
 
